@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fff0f6">
+  <title>For Hachintha 💗</title>
+  <style>
+    :root{--pink:#ff72a9;--deep:#a62e68;--soft:#fff0f6;--ink:#63264a;--cream:#fffafd}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100svh;overflow-x:hidden;display:grid;place-items:center;padding:20px 14px;color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Sinhala",sans-serif;background:radial-gradient(circle at 15% 15%,#ffe0ec 0,transparent 34%),radial-gradient(circle at 90% 85%,#ffd8e8 0,transparent 32%),linear-gradient(145deg,#fff7fb,#ffeaf3 55%,#fff5fa)}
+    #sky{position:fixed;inset:0;overflow:hidden;pointer-events:none}
+    .spark{position:absolute;opacity:.55;animation:twinkle 2.5s ease-in-out infinite;color:#ff80b5}
+    .card{position:relative;width:min(100%,520px);padding:clamp(24px,7vw,42px) clamp(18px,6vw,38px);text-align:center;border:2px solid rgba(255,114,169,.28);border-radius:30px;background:rgba(255,255,255,.78);box-shadow:0 20px 65px #c84d8624,inset 0 0 0 7px #fff7fb;animation:pop .9s cubic-bezier(.2,.8,.2,1) both}
+    .ribbon{display:inline-block;background:#ffe1ed;color:#a62e68;border-radius:999px;padding:8px 14px;font-size:.78rem;font-weight:800;letter-spacing:.04em}
+    .hero{font-size:clamp(3.5rem,17vw,6rem);line-height:1.2;margin:12px 0;filter:drop-shadow(0 7px 8px #ff9cbd55);animation:bounce 3s ease-in-out infinite}
+    h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.35rem,10vw,4rem);line-height:1.08;margin:8px 0 14px;color:var(--deep);letter-spacing:-.04em}
+    h1 span{display:inline-block;color:#f05b99;text-shadow:0 4px 0 #ffe1ed}
+    .intro{font-size:clamp(.98rem,3.7vw,1.08rem);line-height:1.85;margin:0 auto 22px;max-width:390px}
+    .intro strong{color:#d13e7e}
+    .btn{appearance:none;display:inline-flex;justify-content:center;align-items:center;gap:8px;width:100%;max-width:300px;min-height:54px;padding:14px 20px;border:0;border-radius:999px;background:linear-gradient(100deg,#ff8db8,#ffb5d0);color:#702347;font:inherit;font-weight:850;box-shadow:0 9px 22px #ff72a943;cursor:pointer;transition:transform .2s,box-shadow .2s;touch-action:manipulation}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px #ff72a966}.btn:active{transform:scale(.98)}.btn:focus-visible{outline:3px solid #a62e68;outline-offset:4px}
+    .letter{display:grid;grid-template-rows:0fr;opacity:0;margin-top:0;transition:grid-template-rows .55s ease,opacity .45s ease,margin .45s ease}
+    .letter.open{grid-template-rows:1fr;opacity:1;margin-top:22px}
+    .letter-inner{overflow:hidden}
+    .letter-box{padding:20px 17px;background:#fff3f8;border:1px dashed #f3a0c2;border-radius:20px;line-height:1.95;white-space:pre-line;font-size:clamp(.95rem,3.5vw,1.04rem)}
+    .sign{font-family:Georgia,serif;font-style:italic;font-weight:700;color:#d13e7e;margin-top:12px}
+    .foot{font-size:.75rem;color:#bd6c91;margin:22px 0 0}
+    .float{position:fixed;left:var(--x);bottom:-45px;pointer-events:none;z-index:4;font-size:var(--size);animation:floatUp var(--time) linear forwards}
+    .confetti{position:fixed;top:-25px;left:var(--x);z-index:5;pointer-events:none;font-size:var(--size);animation:fall var(--time) ease-in forwards}
+    @keyframes pop{from{opacity:0;transform:translateY(20px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+    @keyframes bounce{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-9px) rotate(4deg)}}
+    @keyframes twinkle{0%,100%{opacity:.2;transform:scale(.7) rotate(0)}50%{opacity:.9;transform:scale(1.3) rotate(20deg)}}
+    @keyframes floatUp{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+    @keyframes fall{to{transform:translate(var(--drift),110vh) rotate(650deg);opacity:.85}}
+    @media(max-width:360px){body{padding:10px}.card{border-radius:24px;padding:24px 16px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <div id="sky" aria-hidden="true"></div>
+  <main class="card">
+    <div class="ribbon">A LITTLE SURPRISE JUST FOR YOU 💌</div>
+    <div class="hero" aria-hidden="true">🧸💗🎀</div>
+    <h1>Hey,<br><span id="recipient">Hachintha</span>! 💕</h1>
+    <p class="intro">ඔයා වෙනුවෙන් පුංචි surprise එකක්…<br><strong>Because you make ordinary moments feel special.</strong> 🌷</p>
+    <button class="btn" id="openBtn" type="button" aria-expanded="false" aria-controls="letter">Open My Little Letter 💌</button>
+    <section class="letter" id="letter" aria-live="polite">
+      <div class="letter-inner">
+        <div class="letter-box" id="letterText">හචින්ත 💗
+
+ඔයාගේ හිනාව හැමදාමත් ලස්සන හේතුවක් වෙලා තියෙන්න කියලා මම ප්‍රාර්ථනා කරනවා. ඔයාගේ දවස් සතුටින්, හිත සැනසීමෙන්, පුංචි පුංචි ලස්සන මතකවලින් පිරෙන්න ඕනේ. 🌸
+
+No matter how busy life gets, I hope you always find little reasons to smile. You deserve kindness, happiness, and beautiful moments every day. 💖
+
+මේ පුංචි message එක ඔයාගේ මූණට හිනාවක් ගෙනාවොත්, ඒක තමයි මේ surprise එකේ ලස්සනම දේ. 🧸✨
+          <div class="sign">Sending you smiles &amp; warm wishes 💗</div>
+        </div>
+      </div>
+    </section>
+    <p class="foot">Made with tiny sparkles, just for you ✨</p>
+  </main>
+  <script>
+    // Customize the name and message below whenever you like.
+    const CONFIG = {
+      recipient: "Hachintha",
+      letter: `හචින්ත 💗
+
+ඔයාගේ හිනාව හැමදාමත් ලස්සන හේතුවක් වෙලා තියෙන්න කියලා මම ප්‍රාර්ථනා කරනවා. ඔයාගේ දවස් සතුටින්, හිත සැනසීමෙන්, පුංචි පුංචි ලස්සන මතකවලින් පිරෙන්න ඕනේ. 🌸
+
+No matter how busy life gets, I hope you always find little reasons to smile. You deserve kindness, happiness, and beautiful moments every day. 💖
+
+මේ පුංචි message එක ඔයාගේ මූණට හිනාවක් ගෙනාවොත්, ඒක තමයි මේ surprise එකේ ලස්සනම දේ. 🧸✨`,
+      signature: "Sending you smiles & warm wishes 💗"
+    };
+    document.getElementById("recipient").textContent = CONFIG.recipient;
+    const letterText = document.getElementById("letterText");
+    letterText.textContent = CONFIG.letter;
+    const sign = document.createElement("div");
+    sign.className = "sign";
+    sign.textContent = CONFIG.signature;
+    letterText.appendChild(sign);
+
+    const sky = document.getElementById("sky");
+    for (let i = 0; i < 55; i++) {
+      const s = document.createElement("span");
+      s.className = "spark";
+      s.textContent = ["✦", "✧", "·", "♡"][Math.floor(Math.random() * 4)];
+      s.style.left = Math.random() * 100 + "%";
+      s.style.top = Math.random() * 100 + "%";
+      s.style.fontSize = (10 + Math.random() * 17) + "px";
+      s.style.animationDelay = (Math.random() * 3) + "s";
+      sky.appendChild(s);
+    }
+    const btn = document.getElementById("openBtn");
+    const letter = document.getElementById("letter");
+    btn.addEventListener("click", () => {
+      const open = !letter.classList.contains("open");
+      letter.classList.toggle("open", open);
+      btn.setAttribute("aria-expanded", String(open));
+      btn.textContent = open ? "Send More Sparkles ✨" : "Open My Little Letter 💌";
+      if (open) celebrate();
+    });
+    function celebrate() {
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const bits = ["💗", "💕", "🎀", "✨", "🌸", "🧸", "💖", "⭐"];
+      for (let i = 0; i < 32; i++) {
+        const el = document.createElement("span");
+        el.className = "confetti";
+        el.textContent = bits[Math.floor(Math.random() * bits.length)];
+        el.style.setProperty("--x", Math.random() * 100 + "vw");
+        el.style.setProperty("--size", (14 + Math.random() * 19) + "px");
+        el.style.setProperty("--time", (2.4 + Math.random() * 2.5) + "s");
+        el.style.setProperty("--drift", (Math.random() * 150 - 75) + "px");
+        document.body.appendChild(el);
+        el.addEventListener("animationend", () => el.remove(), {once:true});
+      }
+      for (let i = 0; i < 9; i++) {
+        const el = document.createElement("span");
+        el.className = "float";
+        el.textContent = bits[Math.floor(Math.random() * bits.length)];
+        el.style.setProperty("--x", Math.random() * 100 + "vw");
+        el.style.setProperty("--size", (19 + Math.random() * 17) + "px");
+        el.style.setProperty("--time", (4 + Math.random() * 3) + "s");
+        document.body.appendChild(el);
+        el.addEventListener("animationend", () => el.remove(), {once:true});
+      }
+    }
+  </script>
+</body>
+</html>
